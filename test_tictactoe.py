@@ -15,6 +15,7 @@ def test_generate_blank_locations_five():
     assert locations == test_locations, "Blank grids do not match on GRID_SIZE=5 !"
 
 
+
 def test_check_user_row_column_normal():
     GRID_SIZE = 3
     user_input = (1, 2)
@@ -35,6 +36,8 @@ def test_check_user_row_column_erroneous():
     check = check_user_row_column(GRID_SIZE, user_input)
 
     assert check == False, "Check user row, errorneous data expected error."
+
+
 
 
 if __name__ == "__main__":

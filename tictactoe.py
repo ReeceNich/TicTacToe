@@ -32,6 +32,8 @@ def display_grid(GRID_SIZE, locations):
     print(grid)
 
 
+""" *** INPUTS *** """
+
 def get_user_row_column_input():
     row = input("Enter Row Number: ")
     column = input("Enter Column Number: ")
@@ -49,11 +51,13 @@ def check_user_row_column(GRID_SIZE, user_input):
     except:
         return False
 
-def retrieve_row_column(GRID_SIZE):
+def input_row_column(GRID_SIZE):
     while True:
         user_input = get_user_row_column_input()
         if check_user_row_column(GRID_SIZE, user_input):
             return user_input
+        else:
+            print("*** Error - row/column input incorrect. ***")
 
 
 
@@ -63,4 +67,4 @@ if __name__ == "__main__":
 
     locations = generate_blank_locations(GRID_SIZE)
     display_grid(GRID_SIZE, locations)
-    retrieve_row_column(GRID_SIZE)
+    input_row_column(GRID_SIZE)
