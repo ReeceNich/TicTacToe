@@ -1,5 +1,9 @@
 """
 Tic tac toe game.
+
+TODO:
+get user input needs valid row/column range error testing.
+display grid needs numbers for rows/columns.
 """
 
 def generate_blank_locations():
@@ -29,9 +33,20 @@ def display_grid(locations):
     print(grid)
 
 
+def user_row_column():
+    while True:
+        try:
+            row = int(input("Enter Row Number: "))
+            column = int(input("Enter Column Number: "))
+            return (row, column)
+        except:
+            print("*** Error with row/column inputs ***")
+
+
+
 
 if __name__ == "__main__":
     GRID_SIZE = 3
-    
+
     locations = generate_blank_locations()
     display_grid(locations)
