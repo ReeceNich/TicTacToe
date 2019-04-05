@@ -2,7 +2,6 @@
 Tic tac toe game.
 
 TODO:
-get user input needs valid row/column range error testing.
 display grid needs numbers for rows/columns.
 """
 
@@ -34,25 +33,23 @@ def display_grid(GRID_SIZE, locations):
 
 
 def get_user_row_column_input():
-    row = int(input("Enter Row Number: "))
-    column = int(input("Enter Column Number: "))
+    row = input("Enter Row Number: ")
+    column = input("Enter Column Number: ")
     return (row, column)
 
 def check_user_row_column(GRID_SIZE, user_input):
-    while True:
-        try:
-            row = user_input[0]
-            column = user_input[1]
-            if (row >= 1 and row <= GRID_SIZE) and (col >= 1 and col <= GRID_SIZE):
-                return True
-            else:
-                print("*** Error - row/column not in the valid range ***")
-                return False
-        except:
-            print("*** Game Error - row/column inputs ***")
-            return False
+    try:
+        row = int(user_input[0])
+        column = int(user_input[1])
 
-def retrieve_row_column():
+        if row >= 1 and row <= GRID_SIZE:
+            if column >= 1 and column <= GRID_SIZE:
+                return True
+        return False
+    except:
+        return False
+
+def retrieve_row_column(GRID_SIZE):
     while True:
         user_input = get_user_row_column_input()
         if check_user_row_column(GRID_SIZE, user_input):
@@ -66,3 +63,4 @@ if __name__ == "__main__":
 
     locations = generate_blank_locations(GRID_SIZE)
     display_grid(GRID_SIZE, locations)
+    retrieve_row_column(GRID_SIZE)
