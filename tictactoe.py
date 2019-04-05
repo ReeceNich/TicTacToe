@@ -6,7 +6,7 @@ get user input needs valid row/column range error testing.
 display grid needs numbers for rows/columns.
 """
 
-def generate_blank_locations():
+def generate_blank_locations(GRID_SIZE):
     locations = []
     for row in range(GRID_SIZE):
         locations.append([])
@@ -15,7 +15,7 @@ def generate_blank_locations():
     return locations
 
 
-def display_grid(locations):
+def display_grid(GRID_SIZE, locations):
     grid = ""
 
     for row in range(GRID_SIZE):
@@ -33,14 +33,17 @@ def display_grid(locations):
     print(grid)
 
 
-def user_row_column():
+def user_row_column(GRID_SIZE):
     while True:
         try:
             row = int(input("Enter Row Number: "))
             column = int(input("Enter Column Number: "))
-            return (row, column)
+            if (row >= 1 and row <= GRID_SIZE) and (col >= 1 and col <= GRID_SIZE):
+                return (row, column)
+            else:
+                print("*** Error - row/column not in the valid range ***")
         except:
-            print("*** Error with row/column inputs ***")
+            print("*** Game Error - row/column inputs ***")
 
 
 
@@ -48,5 +51,5 @@ def user_row_column():
 if __name__ == "__main__":
     GRID_SIZE = 3
 
-    locations = generate_blank_locations()
-    display_grid(locations)
+    locations = generate_blank_locations(GRID_SIZE)
+    display_grid(GRID_SIZE, locations)
