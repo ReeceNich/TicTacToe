@@ -33,17 +33,30 @@ def display_grid(GRID_SIZE, locations):
     print(grid)
 
 
-def user_row_column(GRID_SIZE):
+def get_user_row_column_input():
+    row = int(input("Enter Row Number: "))
+    column = int(input("Enter Column Number: "))
+    return (row, column)
+
+def check_user_row_column(GRID_SIZE, user_input):
     while True:
         try:
-            row = int(input("Enter Row Number: "))
-            column = int(input("Enter Column Number: "))
+            row = user_input[0]
+            column = user_input[1]
             if (row >= 1 and row <= GRID_SIZE) and (col >= 1 and col <= GRID_SIZE):
-                return (row, column)
+                return True
             else:
                 print("*** Error - row/column not in the valid range ***")
+                return False
         except:
             print("*** Game Error - row/column inputs ***")
+            return False
+
+def retrieve_row_column():
+    while True:
+        user_input = get_user_row_column_input()
+        if check_user_row_column(GRID_SIZE, user_input):
+            return user_input
 
 
 
