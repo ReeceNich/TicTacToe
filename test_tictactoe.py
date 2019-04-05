@@ -25,7 +25,7 @@ def test_check_user_row_column_normal():
 
 def test_check_user_row_column_boundary():
     GRID_SIZE = 3
-    user_input = (3, 3)
+    user_input = (1, 3)
     check = check_user_row_column(GRID_SIZE, user_input)
 
     assert check == True, "Check user row, boundary data expected true."
