@@ -2,7 +2,7 @@
 Tic tac toe game.
 
 TODO:
-display grid needs numbers for rows/columns.
+
 """
 
 def generate_blank_locations(GRID_SIZE):
@@ -17,6 +17,10 @@ def generate_blank_locations(GRID_SIZE):
 def display_grid(GRID_SIZE, locations):
     grid = ""
 
+    for num in range(1, GRID_SIZE + 1):
+        grid += " {}".format(num)
+    grid += "\n"
+
     for row in range(GRID_SIZE):
         grid += "--" * GRID_SIZE + "-\n"
 
@@ -25,7 +29,7 @@ def display_grid(GRID_SIZE, locations):
                 grid += "|{}".format(locations[row][col])
             else:
                 grid += "| "
-        grid += "|\n"
+        grid += "| {}\n".format(row + 1)
 
     grid += "--" * GRID_SIZE + "-\n"
 
